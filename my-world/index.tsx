@@ -1,5 +1,6 @@
 import { ButtonSensor, HDKComponent, HNode, InfoPanel, LogicGate, PointLight, Prefab, VisibleOnSignal, render } from "@hiber3d/hdk-react";
 import { Ground, Spawnpoint } from "@hiber3d/hdk-react-components";
+import Building from "./Building";
 import Foliage from "./Foliage";
 import OrbitingAsteroids from "./OrbitingAsteroids";
 
@@ -13,6 +14,7 @@ const Sign: HDKComponent<{ header: string; body: string; url: string }> = ({ ...
 
 const World = () => (
   <HNode>
+    <Building y={0} z={20} />
     <Foliage y={-1.5} />
     <OrbitingAsteroids y={20} />
     <Ground hilly={1} material={"t_sand_01"} />
