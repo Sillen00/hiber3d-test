@@ -14,14 +14,14 @@ const Sign: HDKComponent<{ header: string; body: string; url: string }> = ({ ...
 
 const World = () => (
   <HNode>
-    <Building y={0} z={20} />
+    <Building y={0} z={60} />
     <Foliage y={-1.5} />
     <OrbitingAsteroids y={20} />
     <Ground hilly={1} material={"t_sand_01"} />
     <Spawnpoint />
 
     {/* Rainbox boxes */}
-    <HNode y={2} z={5} rotX={90} rotY={20}>
+    <HNode y={2} z={5} rotX={40} rotY={20}>
       <Prefab id="cube_01" material="t_rainbow_02" />
       <Prefab id="cube_01" material="t_rainbow_02" x={5} rotX={10} />
       <Prefab id="cube_01" material="t_rainbow_02" x={-5} />
