@@ -1,26 +1,30 @@
-import { HDKComponent, HNode, InfoPanel, Prefab, render } from "@hiber3d/hdk-react";
-import { Ground, Spawnpoint } from "@hiber3d/hdk-react-components";
+import { Environment, GLB, HNode, Prefab, render } from "@hiber3d/hdk-react";
+import { Spawnpoint } from "@hiber3d/hdk-react-components";
+import { Data, XBlock } from "./datocms";
+const VERSION = 1;
+var DATA;
 
-const Sign: HDKComponent<{ header: string; body: string; url: string }> = ({ ...props }) => (
-  <InfoPanel {...props} openUrlInNewTab>
-    <Prefab id="sign_wooden_01_question" rotY={180} />
-  </InfoPanel>
-);
+Data("jensflotte", (data: any) => {
+  DATA = data;
+  console.log(data.flotten.src);
 
-const World = () => (
-  <HNode>
-    <Ground />
-    <Spawnpoint />
-    <Sign
-      header="Welcome to Hiber3D HDK!"
-      body="This is The Getting Started world. Press O to learn how to build something!"
-      url="https://developer.hiber3d.com/docs/getting-started/fundamentals"
-      z={3}
-    />
-  </HNode>
-);
+  const flotten3d = data.flotten.src;
+  render(
+    <HNode z={0} y={0}>
+      <Prefab id="rock_01_t1" x={10} />
+      <GLB z={0} y={10} x={5} src="https://cdn.hibervr.com/external/hdk/en_p_cube_sculpture_01.glb" />
+      <XBlock src={flotten3d} x={13} />
 
-/**
- * Render an almost empty world
- */
-render(<World />, { environment: "midday_01" });
+      <Prefab x={4} y={1} id="water_plane_01" />
+      <Prefab x={4} y={0} id="cube_01" material="t_water_01" />
+      <Prefab x={2} y={0} id="cube_01" material="t_water_01" />
+      <Prefab x={0} y={0} id="cube_01" material="t_water_01" />
+
+      <Spawnpoint />
+
+      <Environment id="env" extendEnvironment="sunrise_01" />
+    </HNode>,
+
+    { environment: "env" }
+  );
+});
