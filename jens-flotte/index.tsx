@@ -1,5 +1,5 @@
 import { Environment, GLB, HNode, Prefab, render } from "@hiber3d/hdk-react";
-import { Spawnpoint } from "@hiber3d/hdk-react-components";
+import { Grid, Spawnpoint } from "@hiber3d/hdk-react-components";
 import { Data, XBlock } from "./datocms";
 const VERSION = 1;
 var DATA;
@@ -15,10 +15,9 @@ Data("jensflotte", (data: any) => {
       <GLB z={0} y={10} x={5} src="https://cdn.hibervr.com/external/hdk/en_p_cube_sculpture_01.glb" />
       <XBlock src={flotten3d} x={13} />
 
-      <Prefab x={4} y={1} id="water_plane_01" />
-      <Prefab x={4} y={0} id="cube_01" material="t_water_01" />
-      <Prefab x={2} y={0} id="cube_01" material="t_water_01" />
-      <Prefab x={0} y={0} id="cube_01" material="t_water_01" />
+      {/* Vatten utan mark / faller igenom. */}
+      {/* <Prefab x={4} y={1} id="water_plane_01" /> */}
+      <Grid y={-2} rows={26} columns={26} itemSpacing={2} renderItem={<Prefab id="cube_01" material="t_water_01" />} />
 
       <Spawnpoint />
 
