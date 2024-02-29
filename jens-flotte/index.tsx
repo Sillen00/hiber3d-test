@@ -6,7 +6,6 @@ var DATA;
 
 Data("jensflotte", (data: any) => {
   DATA = data;
-  console.log(data.flotten.src);
 
   const flotten3d = data.flotten.src;
   render(
@@ -20,7 +19,7 @@ Data("jensflotte", (data: any) => {
       <AnimateAlongPath
         easing="EASE_IN_OUT_QUAD"
         duration={60}
-        numberOfItems={720}
+        numberOfItems={360}
         points={[
           [0, 0, 0],
           [0, 0, 10],
@@ -53,6 +52,8 @@ Data("jensflotte", (data: any) => {
       {/* Water */}
       {/* <Grid  rows={26} columns={26} itemSpacing={2} renderItem={<Prefab id="water_plane_01" />} /> */}
       <Prefab y={-3} id="water_plane_01" scaleX={20} scaleZ={38} />
+      <Prefab y={2} z={4} id="fx_particlesystem_mist_01" />
+      <Prefab y={2} z={4} id="fx_particlesystem_mist_01" />
 
       <Spawnpoint />
 
