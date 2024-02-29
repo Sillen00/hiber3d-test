@@ -3,6 +3,7 @@
   "version": "0.0.130",
   "license": "MIT",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "hdk dev --open",
     "upload": "hdk upload"

@@ -12,20 +12,28 @@ Data("jensflotte", (data: any) => {
   render(
     <HNode z={0} y={0}>
       <Prefab id="rock_01_t1" x={10} />
-      <XBlock src={flotten3d} z={17} />
+      <XBlock src={flotten3d} z={100} />
 
       {/* <Prefab id="en_m_wooden_platform_01" /> */}
       {/* <Prefab id="en_m_wooden_platform_01_ceiling" /> */}
 
       <AnimateAlongPath
-        close
         easing="EASE_IN_OUT_QUAD"
-        duration={15}
-        numberOfItems={10}
+        duration={60}
+        numberOfItems={720}
         points={[
           [0, 0, 0],
-          [0, 0, 1],
-          [0, 0, 2],
+          [0, 0, 10],
+          [4, 0, 50],
+          [-16, 0, 100],
+          [6, 0, 140],
+          [24, 0, 100],
+          [6, 0, 60],
+          [-40, 0, 30],
+          [-60, 0, -10],
+          [-40, 0, -35],
+          [-10, 0, -25],
+          [0, 0, 0],
         ]}
       >
         <Prefab x={-6.7} z={2} y={-0.9} scale={1.3} id="rowboat_01" />
@@ -43,7 +51,8 @@ Data("jensflotte", (data: any) => {
       {/* Wooden start platform */}
       <Grid y={-1} rows={4} columns={4} itemSpacing={2} renderItem={<Prefab id="en_m_wooden_platform_01_ceiling" />} />
       {/* Water */}
-      <Grid y={-3} rows={26} columns={26} itemSpacing={2} renderItem={<Prefab id="water_plane_01" />} />
+      {/* <Grid  rows={26} columns={26} itemSpacing={2} renderItem={<Prefab id="water_plane_01" />} /> */}
+      <Prefab y={-3} id="water_plane_01" scaleX={20} scaleZ={38} />
 
       <Spawnpoint />
 
